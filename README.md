@@ -1,3 +1,13 @@
+## Algunos puntos que se tomaron en cuenta
+- Uso de Gluestack-ui https://gluestack.io/. theme predeterminado.
+- React Navigation.
+- Redux Toolkit.
+- Redux Store.
+- Higher-Order Components.
+
+## Resultado
+![](./src/assets/result.gif "Result")
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
