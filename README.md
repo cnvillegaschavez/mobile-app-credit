@@ -4,7 +4,7 @@
 - Redux Toolkit.
 - Redux Store.
 - Higher-Order Components.
-- Unit Test - Jes
+- Unit Test - Jest
 - Convetional commits https://www.conventionalcommits.org/es/v1.0.0/#especificaci%c3%b3n
 
 ## Resultado
