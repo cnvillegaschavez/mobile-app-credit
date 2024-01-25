@@ -20,7 +20,7 @@ export const TEXTS = {
   },
   DETAIL: {
     TITLE: 'Acepta tu crédito',
-    SUBTITLE: 'Confirma que has seleccionado el crédito desado.',
+    SUBTITLE: 'Confirma que has seleccionado el crédito deseado.',
     CREDIT_SELECT: 'Crédito seleccionado:',
     HIRE: 'Contratar',
   },

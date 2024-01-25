@@ -13,8 +13,8 @@ import {TEXTS} from '../../core/constants/texts';
 import {HeaderTitle} from '../../components/ui';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {IModelCredit} from '../home/model/model';
 import CreditItem from '../../components/ui/CreditItem';
+import IModelCredit from '../../store/models/IModelCredit';
 
 type DetailProps = PropsWithChildren<{}>;
 
@@ -35,7 +35,7 @@ const Detail: React.FC<DetailProps> = ({route}) => {
               title={TEXTS.DETAIL.TITLE}
               subTitle={TEXTS.DETAIL.SUBTITLE}
             />
-            <Text size="sm" mt={30} mb={4}>
+            <Text size="sm" mt={60} mb={4}>
               {TEXTS.DETAIL.CREDIT_SELECT}
             </Text>
             <CreditItem

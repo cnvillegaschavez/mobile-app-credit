@@ -13,7 +13,7 @@ import React, {useState} from 'react';
 import {HeaderTitle} from '../../../components/ui';
 import {TEXTS} from '../../../core/constants/texts';
 import CreditItem from '../../../components/ui/CreditItem';
-import {IModelCredit} from '../model/model';
+import IModelCredit from '../../../store/models/IModelCredit';
 
 type Props = {
   showModal: boolean;

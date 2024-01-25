@@ -8,15 +8,17 @@
 import React from 'react';
 import {GluestackUIProvider} from '@gluestack-ui/themed';
 import {config} from '@gluestack-ui/config';
-import Home from './src/screens/home/Home';
 import MainNavigator from './src/navigations/MainNavigator';
+import {Provider} from 'react-redux';
+import store from './src/store/store';
 
 function App(): React.JSX.Element {
-  
   return (
-    <GluestackUIProvider config={config}>
-      <MainNavigator/>
-    </GluestackUIProvider>
+    <Provider store={store}>
+      <GluestackUIProvider config={config}>
+        <MainNavigator />
+      </GluestackUIProvider>
+    </Provider>
   );
 }
 export default App;

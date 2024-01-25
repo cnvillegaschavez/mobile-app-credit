@@ -1,16 +1,27 @@
 import React from 'react';
-import {View, VStack, ButtonText, Button} from '@gluestack-ui/themed';
+import {
+  View,
+  VStack,
+  ButtonText,
+  Button,
+  ButtonSpinner,
+} from '@gluestack-ui/themed';
 import {Controller, useForm} from 'react-hook-form';
 import {EMAIL, NAME, initialValues} from '../model/schema';
 import {TEXTS} from '../../../core/constants/texts';
 import {CustomTextInput} from '../../../components/ui/index';
 import {useColorScheme} from 'react-native';
 type Props = {
+  isLoading: boolean;
   defaultValues?: any;
   onSubmit?: (data: any) => void;
 };
 
-const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
+const RegisterForm: React.FC<Props> = ({
+  isLoading = false,
+  defaultValues,
+  onSubmit,
+}: Props) => {
   const {
     control,
     formState: {errors = {}, isValid},
@@ -80,10 +91,11 @@ const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
         </VStack>
         <VStack>
           <Button
-            isDisabled={!isValid}
+            isDisabled={!isValid && !isLoading}
             size="lg"
             onPress={handleSubmit(handleSubmitForm)}>
             <ButtonText>{TEXTS.REGISTER_FORM.LABELS.BTN_DISCOVER}</ButtonText>
+            {isLoading && <ButtonSpinner />}
           </Button>
         </VStack>
       </VStack>

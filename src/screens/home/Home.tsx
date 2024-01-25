@@ -5,23 +5,30 @@ import {TEXTS} from '../../core/constants/texts';
 import RegisterForm from './components/RegisterForm';
 import {HeaderTitle} from '../../components/ui';
 import ModalCreditOption from './components/ModalCreditOption';
-import {dataMock} from './model/model';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
 import paths from '../../core/constants/paths';
+import {useLazyGetCreditsQuery} from '../../store/apiSlices/apiCredit';
+import IModelCredit from '../../store/models/IModelCredit';
 
 type HomeProps = PropsWithChildren<{}>;
 
 const Home: React.FC<HomeProps> = () => {
   const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
-  let data = dataMock;
+  const [data, setData] = useState<IModelCredit[]>([]);
+  const [getCredit, {isLoading}] = useLazyGetCreditsQuery();
   const handleSubmit = (_data: any) => {
-    setShowModal(true);
+    getCredit(undefined)
+      .unwrap()
+      .then(credit => {
+        setData(credit?.data || []);
+        setShowModal(true);
+      });
   };
 
-  const handleCloseModal = (item: any) => {
+  const handleCloseModal = (item: IModelCredit | null) => {
     if (item) {
       navigation.navigate(paths.DETAIL, {data: item});
     }
@@ -43,7 +50,7 @@ const Home: React.FC<HomeProps> = () => {
               title={TEXTS.HOME.TITLE}
               subTitle={TEXTS.HOME.SUBTITLE}
             />
-            <RegisterForm onSubmit={handleSubmit} />
+            <RegisterForm onSubmit={handleSubmit} isLoading={isLoading} />
             <ModalCreditOption
               showModal={showModal}
               onClose={handleCloseModal}
