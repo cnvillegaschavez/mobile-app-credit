@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {GluestackUIProvider} from '@gluestack-ui/themed';
-import {config} from '@gluestack-ui/config';
+import {config} from './config/gluestack-ui.config';
 import MainNavigator from './src/navigations/MainNavigator';
 import {Provider} from 'react-redux';
 import store from './src/store/store';

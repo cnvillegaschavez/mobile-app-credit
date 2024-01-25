@@ -1,10 +1,10 @@
-import React, {Children, createContext} from 'react';
+import React, {Children} from 'react';
 import {render} from '@testing-library/react-native';
 import configureStore from 'redux-mock-store';
+import {Provider} from 'react-redux';
 import {GluestackUIProvider} from '@gluestack-ui/themed';
 
-const middlewares = [];
-const mockStore = configureStore(middlewares);
+const mockStore = configureStore([]);
 
 const navigation = {
   navigate: jest.fn(),
@@ -15,18 +15,17 @@ const navigation = {
   replace: jest.fn(),
 };
 
-const ReduxContext = createContext();
-
-export const Provider = ({store, children}) => {
-  return (
-    <ReduxContext.Provider value={store}>{children}</ReduxContext.Provider>
-  );
+const config = {
+  aliases: {},
+  tokens: {},
+  globalStyle: {},
+  plugins: [],
 };
 
 const Providers = ({store, children}) => {
   return (
     <Provider {...{store}}>
-      <GluestackUIProvider>{children}</GluestackUIProvider>
+      <GluestackUIProvider config={config}>{children}</GluestackUIProvider>
     </Provider>
   );
 };

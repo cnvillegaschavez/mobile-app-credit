@@ -13,21 +13,6 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
-  Reanimated.default.call = () => {};
-  return Reanimated;
-});
-
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
-
-jest.mock('@gluestack-ui/themed', () => ({
-  useThemedStyles: jest.fn(() => ({
-    container: 'mocked-container-style',
-  })),
-  componentsConfig: jest.fn(),
-}));
-
 NativeModules.RNCNetInfo = {
   getCurrentState: jest.fn(() => Promise.resolve({})),
   getCurrentConnectivity: jest.fn(),

@@ -1,19 +1,16 @@
 import React from 'react';
 import HeaderTitle from '../HeaderTitle';
-import {render} from '@testing-library/react-native';
-import renderer from 'react-test-renderer';
+import {render} from '../../../utils/test/reactNativeTestingLibrary';
 
 describe('HeaderTitle Component', () => {
   test('renders correctly', () => {
-    /*const {getByTestId} = renderer.create(
+    const renderResult = render(
       <HeaderTitle title="Titulo" subTitle="SubTitulo" />,
+      {},
     );
-    expect(getByTestId('header-title')).toBeDefined();*/
-
-    const tree = renderer
-      .create(<HeaderTitle title="Titulo" subTitle="SubTitulo" />)
-      .toJSON();
-    expect(tree.children.length).toBe(1);
+    expect(renderResult.getByTestId('header-title')).toBeDefined();
+    expect(renderResult.getByText('Titulo')).toBeDefined();
+    expect(renderResult.getByText('SubTitulo')).toBeDefined();
   });
 
   // Add more tests as needed
