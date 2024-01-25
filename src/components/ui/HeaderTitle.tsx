@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, VStack} from '@gluestack-ui/themed';
-import {useColorScheme} from 'react-native';
 
 type Props = {
   title: string;
@@ -10,7 +9,7 @@ type Props = {
 const HeaderTitle: React.FC<Props> = ({title, subTitle}: Props) => {
   return (
     <>
-      <VStack space="sm">
+      <VStack space="sm" testID="header-title">
         <VStack space="xs">
           <Text size="2xl" bold={true}>
             {title}
