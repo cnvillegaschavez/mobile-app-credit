@@ -5,8 +5,11 @@ module.exports = {
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    '\\.(png|jpg|ico|jpeg|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/__mocks__/ImageMock.tsx',
+    '^@components(.*)$': '<rootDir>/src/components$1',
+    '^@constants(.*)$': '<rootDir>/src/constants$1',
+    '^@navigation(.*)$': '<rootDir>/src/navigation$1',
+    '^@screens(.*)$': '<rootDir>/src/screens$1',
+    '^@store(.*)$': '<rootDir>/src/store$1',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?@react-native|react-native|react-native-reanimated||@gluestack-ui/themed|@gluestack-ui/config|@gluestack-style/react)',
