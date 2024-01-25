@@ -25,9 +25,7 @@ const CustomTextInput = React.forwardRef(
     <FormControl>
       {label && (
         <FormControlLabel>
-          <FormControlLabelText color={props.color} size="xs">
-            {label}
-          </FormControlLabelText>
+          <FormControlLabelText size="xs">{label}</FormControlLabelText>
         </FormControlLabel>
       )}
       <Input>

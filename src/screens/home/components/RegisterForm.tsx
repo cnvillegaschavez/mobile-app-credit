@@ -10,7 +10,6 @@ import {Controller, useForm} from 'react-hook-form';
 import {EMAIL, NAME, initialValues} from '../model/schema';
 import {TEXTS} from '../../../core/constants/texts';
 import {CustomTextInput} from '../../../components/ui/index';
-import {useColorScheme} from 'react-native';
 type Props = {
   isLoading: boolean;
   defaultValues?: any;
@@ -35,8 +34,6 @@ const RegisterForm: React.FC<Props> = ({
     mode: 'onTouched',
   });
 
-  const isDarkMode = useColorScheme() === 'dark';
-
   const handleSubmitForm = (_data: any) => {
     onSubmit && onSubmit(_data);
   };
@@ -58,7 +55,6 @@ const RegisterForm: React.FC<Props> = ({
                 {...field}
                 label={TEXTS.REGISTER_FORM.LABELS.NAME}
                 onChangeText={field.onChange}
-                color={isDarkMode ? '$white' : '$black'}
                 errorText={errors[NAME]?.message as string}
               />
             )}
@@ -83,7 +79,6 @@ const RegisterForm: React.FC<Props> = ({
                 {...field}
                 label={TEXTS.REGISTER_FORM.LABELS.EMAIL}
                 onChangeText={field.onChange}
-                color={isDarkMode ? '$white' : '$black'}
                 errorText={errors[EMAIL]?.message}
               />
             )}

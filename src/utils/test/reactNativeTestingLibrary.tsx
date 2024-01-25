@@ -3,6 +3,7 @@ import {render} from '@testing-library/react-native';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 import {GluestackUIProvider} from '@gluestack-ui/themed';
+import configConstants from '../../../config/config-constants';
 
 const mockStore = configureStore([]);
 
@@ -16,10 +17,8 @@ const navigation = {
 };
 
 const config = {
-  aliases: {},
-  tokens: {},
+  ...configConstants,
   globalStyle: {},
-  plugins: [],
 };
 
 const Providers = ({store, children}) => {

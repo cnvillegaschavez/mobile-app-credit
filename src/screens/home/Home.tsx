@@ -5,8 +5,6 @@ import {TEXTS} from '../../core/constants/texts';
 import RegisterForm from './components/RegisterForm';
 import {HeaderTitle} from '../../components/ui';
 import ModalCreditOption from './components/ModalCreditOption';
-import {useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
 import paths from '../../core/constants/paths';
 import {useLazyGetCreditsQuery} from '../../store/apiSlices/apiCredit';
@@ -35,14 +33,8 @@ const Home: React.FC<HomeProps> = () => {
     setShowModal(false);
   };
 
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView>
       <View p="$4" h="100%">
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <View>

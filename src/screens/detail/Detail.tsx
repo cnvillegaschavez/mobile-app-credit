@@ -15,19 +15,23 @@ import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CreditItem from '../../components/ui/CreditItem';
 import IModelCredit from '../../store/models/IModelCredit';
+import {useRoute} from '@react-navigation/native';
 
 type DetailProps = PropsWithChildren<{}>;
-
-const Detail: React.FC<DetailProps> = ({route}) => {
-  const data = route?.params?.data as IModelCredit;
-
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+type RouteParams = {
+  params?: {
+    data?: IModelCredit;
   };
+  key: string;
+  name: string;
+};
+
+const Detail: React.FC<DetailProps> = () => {
+  const route = useRoute<RouteParams>();
+  const data = route?.params?.data;
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView>
       <View p="$4" h="100%">
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <View>
@@ -38,12 +42,14 @@ const Detail: React.FC<DetailProps> = ({route}) => {
             <Text size="sm" mt={60} mb={4}>
               {TEXTS.DETAIL.CREDIT_SELECT}
             </Text>
-            <CreditItem
-              key={data.id}
-              name={data.name}
-              value={data.value}
-              symbol="$"
-            />
+            {data && (
+              <CreditItem
+                key={data.id}
+                name={data.name}
+                value={data.value}
+                symbol="$"
+              />
+            )}
             <VStack mt={50}>
               <Button size="lg">
                 <ButtonText>{TEXTS.DETAIL.HIRE}</ButtonText>

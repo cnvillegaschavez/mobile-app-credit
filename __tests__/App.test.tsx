@@ -12,6 +12,5 @@ import {it} from '@jest/globals';
 // Note: test renderer must be required after react-native.
 
 it('renders correctly', () => {
-  
-
+  //render(<App />, {});
 });

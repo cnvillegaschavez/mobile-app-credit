@@ -27,7 +27,8 @@ const CreditItem: React.FC<Props> = ({
         $sm-pr="$5"
         borderRadius={4}
         mt={10}
-        py="$3">
+        py="$3"
+        testID="credit-item">
         <HStack
           space="md"
           justifyContent="space-between"

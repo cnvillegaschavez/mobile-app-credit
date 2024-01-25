@@ -4,14 +4,12 @@ import {render} from '../../../utils/test/reactNativeTestingLibrary';
 
 describe('HeaderTitle Component', () => {
   test('renders correctly', () => {
-    const renderResult = render(
+    const {getByTestId, getByText} = render(
       <HeaderTitle title="Titulo" subTitle="SubTitulo" />,
       {},
     );
-    expect(renderResult.getByTestId('header-title')).toBeDefined();
-    expect(renderResult.getByText('Titulo')).toBeDefined();
-    expect(renderResult.getByText('SubTitulo')).toBeDefined();
+    expect(getByTestId('header-title')).toBeDefined();
+    expect(getByText('Titulo')).toBeDefined();
+    expect(getByText('SubTitulo')).toBeDefined();
   });
-
-  // Add more tests as needed
 });
