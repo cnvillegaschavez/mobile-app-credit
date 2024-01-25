@@ -38,12 +38,11 @@ const CustomTextInput = React.forwardRef(
           <FormControlHelperText>{helpText}</FormControlHelperText>
         </FormControlHelper>
       )}
-      {errorText && (
-        <FormControlError>
-          <FormControlErrorIcon as={AlertCircleIcon} />
-          <FormControlErrorText> {errorText} </FormControlErrorText>
-        </FormControlError>
-      )}
+
+      <FormControlError>
+        <FormControlErrorIcon as={AlertCircleIcon} />
+        <FormControlErrorText> {errorText} </FormControlErrorText>
+      </FormControlError>
     </FormControl>
   ),
 );

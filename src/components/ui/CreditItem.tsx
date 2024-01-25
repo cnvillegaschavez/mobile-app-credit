@@ -5,7 +5,7 @@ type Props = {
   name: string;
   symbol: string;
   value: number;
-  onSelect: (name: string) => void;
+  onSelect?: (name: string) => void;
   colorSelected?: string;
 };
 
@@ -32,7 +32,7 @@ const CreditItem: React.FC<Props> = ({
           space="md"
           justifyContent="space-between"
           onTouchStart={() => {
-            onSelect(name);
+            onSelect && onSelect(name);
           }}>
           <VStack>
             <Text

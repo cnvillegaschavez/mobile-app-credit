@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, VStack} from '@gluestack-ui/themed';
+import {useColorScheme} from 'react-native';
 
 type Props = {
   title: string;

@@ -29,7 +29,6 @@ const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
   const handleSubmitForm = (_data: any) => {
     onSubmit && onSubmit(_data);
   };
-
   return (
     <View pt="$4">
       <VStack space="xl">
@@ -49,9 +48,7 @@ const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
                 label={TEXTS.REGISTER_FORM.LABELS.NAME}
                 onChangeText={field.onChange}
                 color={isDarkMode ? '$white' : '$black'}
-                errorText={
-                  errors[TEXTS.REGISTER_FORM.LABELS.NAME]?.message as string
-                }
+                errorText={errors[NAME]?.message as string}
               />
             )}
           />
@@ -65,6 +62,10 @@ const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
                 value: true,
                 message: TEXTS.REGISTER_FORM.Required,
               },
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+                message: TEXTS.REGISTER_FORM.Required,
+              },
             }}
             render={({field}) => (
               <CustomTextInput
@@ -72,9 +73,7 @@ const RegisterForm: React.FC<Props> = ({defaultValues, onSubmit}: Props) => {
                 label={TEXTS.REGISTER_FORM.LABELS.EMAIL}
                 onChangeText={field.onChange}
                 color={isDarkMode ? '$white' : '$black'}
-                errorText={
-                  errors[TEXTS.REGISTER_FORM.LABELS.EMAIL]?.message as string
-                }
+                errorText={errors[EMAIL]?.message}
               />
             )}
           />

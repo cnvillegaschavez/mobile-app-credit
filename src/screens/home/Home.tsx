@@ -6,23 +6,36 @@ import RegisterForm from './components/RegisterForm';
 import {HeaderTitle} from '../../components/ui';
 import ModalCreditOption from './components/ModalCreditOption';
 import {dataMock} from './model/model';
+import {useColorScheme} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {useNavigation} from '@react-navigation/native';
+import paths from '../../core/constants/paths';
 
 type HomeProps = PropsWithChildren<{}>;
 
 const Home: React.FC<HomeProps> = () => {
+  const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
   let data = dataMock;
-  const handleSubmit = (data: any) => {
-    console.log(data);
+  const handleSubmit = (_data: any) => {
     setShowModal(true);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = (item: any) => {
+    if (item) {
+      navigation.navigate(paths.DETAIL, {data: item});
+    }
     setShowModal(false);
   };
 
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={backgroundStyle}>
       <View p="$4" h="100%">
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <View>
