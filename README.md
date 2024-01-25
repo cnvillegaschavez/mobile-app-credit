@@ -5,7 +5,7 @@
 - Redux Store.
 - Higher-Order Components.
 - Unit Test - Jest
-- Convetional commits https://www.conventionalcommits.org/es/v1.0.0/#especificaci%c3%b3n
+- Conventional commits https://www.conventionalcommits.org/es/v1.0.0/#especificaci%c3%b3n
 
 ## Resultado
 ![](./src/assets/result.gif "Result")
