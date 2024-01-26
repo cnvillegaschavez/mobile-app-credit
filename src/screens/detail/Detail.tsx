@@ -11,8 +11,6 @@ import {
 } from '@gluestack-ui/themed';
 import {TEXTS} from '../../core/constants/texts';
 import {HeaderTitle} from '../../components/ui';
-import {useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CreditItem from '../../components/ui/CreditItem';
 import IModelCredit from '../../store/models/IModelCredit';
 import {useRoute} from '@react-navigation/native';

@@ -7,5 +7,5 @@ export const apiCredit = apiSlice.injectEndpoints({
   }),
 });
 
-export const {useLazyGetCreditsQuery} = apiCredit;
+export const {useLazyGetCreditsQuery, useGetCreditsQuery} = apiCredit;
 export default apiCredit;
