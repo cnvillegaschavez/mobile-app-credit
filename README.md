@@ -10,7 +10,7 @@
 ## Resultado
 ![](./src/assets/result.gif "Result")
 
-## Resultado de pruebas unitarias, unicamente verificando el renderizado de los componentes
+## Resultado de pruebas unitarias, unicamente verificando el renderizado de los componentes y Función RTKQuery
 ![](./src/assets/test-coverage.png "Test-coverage")
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
